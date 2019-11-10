@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Upload</h1>
+    <form action="/upload" method="post" encType="multipart/form-data">
+      <label for="gltfUploadInput">Choose File:</label>
+      <input type="file" name="gltfFile" id="gltfUploadInput">
+      <input type="submit" value="Upload">
+    </form>
+  </body>
+</html>
