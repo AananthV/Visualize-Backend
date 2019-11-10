@@ -28,11 +28,16 @@ exports.saveFile = (req, res, next) => {
   fs.access(filePath, fs.F_OK, (err) => {
     if (err) {
       req.gltf.mv(filePath, function(err) {
-        return res.status(500).send('Something went wrong');
+        if(err) {
+          return res.status(500).send('Something went wronglol');
+        }
+        req.filePath = filePath;
+        next()
       });
+    } else {
+      req.filePath = filePath;
+      next()
     }
-    req.filePath = filePath;
-    next()
   });
 }
 
